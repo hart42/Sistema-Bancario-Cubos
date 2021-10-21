@@ -22,7 +22,7 @@ Seu papel é construir uma RESTful API que permita:
 **Exemplo:**
 
 ```json
-// Quando é informado um número de conta que não existe:
+// Quando é informado um número de conta que não existe ok:
 // HTTP Status 404
 {
     "mensagem": "Conta bancária não encontada!"
