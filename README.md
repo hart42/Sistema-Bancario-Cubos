@@ -21,7 +21,7 @@ Seu papel é construir uma RESTful API que permita:
 
 **Exemplo:**
 
-```json
+```javascript
 // Quando é informado um número de conta que não existe:
 // HTTP Status 404
 {
@@ -106,7 +106,7 @@ Esse endpoint deverá listar todas as contas bancárias existentes.
 
 #### Exemplo de resposta
 
-```json
+```javascript
 // HTTP Status 200 / 201 / 204
 // 2 contas encontradas
 [
@@ -139,7 +139,7 @@ Esse endpoint deverá listar todas as contas bancárias existentes.
 // nenhuma conta encontrada
 []
 ```
-```json
+```javascript
 // HTTP Status 400 / 401 / 403 / 404
 {
     "mensagem": "A senha do banco informada é inválida!"
@@ -176,7 +176,7 @@ Esse endpoint deverá criar uma conta bancária, onde será gerado um número ú
 
 #### Exemplo de Requisição
 
-```json
+```javascript
 // POST /contas
 {
     "nome": "Foo Bar 2",
@@ -190,11 +190,11 @@ Esse endpoint deverá criar uma conta bancária, onde será gerado um número ú
 
 #### Exemplo de Resposta
 
-```json
+```javascript
 // HTTP Status 200 / 201 / 204
 // Sem conteúdo no corpo (body) da resposta
 ```
-```json
+```javascript
 // HTTP Status 400 / 401 / 403 / 404
 {
     "mensagem": "Já existe uma conta com o cpf ou e-mail informado!"
@@ -230,7 +230,7 @@ Esse endpoint deverá atualizar apenas os dados do usuário de uma conta bancár
     Em caso de **falha na validação**, a resposta deverá possuir ***status code*** apropriado, e em seu corpo (body) deverá possuir um objeto com uma propriedade **mensagem** que deverá possuir como valor um texto explicando o motivo da falha.
 
 #### Exemplo de Requisição
-```json
+```javascript
 // PUT /contas/:numeroConta/usuario
 {
     "nome": "Foo Bar 3",
@@ -245,11 +245,11 @@ Esse endpoint deverá atualizar apenas os dados do usuário de uma conta bancár
 
 #### Exemplo de Resposta
 
-```json
+```javascript
 // HTTP Status 200 / 201 / 204
 // Sem conteúdo no corpo (body) da resposta
 ```
-```json
+```javascript
 // HTTP Status 400 / 401 / 403 / 404
 {
     "mensagem": "O CPF informado já existe cadastrado!"
@@ -279,11 +279,11 @@ Esse endpoint deve excluir uma conta bancária existente.
 
 #### Exemplo de Resposta
 
-```json
+```javascript
 // HTTP Status 200 / 201 / 204
 // Sem conteúdo no corpo (body) da resposta
 ```
-```json
+```javascript
 // HTTP Status 400 / 401 / 403 / 404
 {
     "mensagem": "A conta só pode ser removida se o saldo for zero!"
@@ -314,7 +314,7 @@ Esse endpoint deverá somar o valor do depósito ao saldo de uma conta válida e
     Em caso de **falha na validação**, a resposta deverá possuir ***status code*** apropriado, e em seu corpo (body) deverá possuir um objeto com uma propriedade **mensagem** que deverá possuir como valor um texto explicando o motivo da falha.
 
 #### Exemplo de Requisição
-```json
+```javascript
 // POST /transacoes/depositar
 {
 	"numero_conta": "1",
@@ -324,11 +324,11 @@ Esse endpoint deverá somar o valor do depósito ao saldo de uma conta válida e
 
 #### Exemplo de Resposta
 
-```json
+```javascript
 // HTTP Status 200 / 201 / 204
 // Sem conteúdo no corpo (body) da resposta
 ```
-```json
+```javascript
 // HTTP Status 400 / 401 / 403 / 404
 {
     "mensagem": "O número da conta e o valor são obrigatórios!"
@@ -337,7 +337,7 @@ Esse endpoint deverá somar o valor do depósito ao saldo de uma conta válida e
 
 #### Exemplo do registro de um depósito
 
-```json
+```javascript
 {
     "data": "2021-08-10 23:40:35",
     "numero_conta": "1",
@@ -371,7 +371,7 @@ Esse endpoint deverá realizar o saque de um valor em uma determinada conta banc
     Em caso de **falha na validação**, a resposta deverá possuir ***status code*** apropriado, e em seu corpo (body) deverá possuir um objeto com uma propriedade **mensagem** que deverá possuir como valor um texto explicando o motivo da falha.
 
 #### Exemplo de Requisição
-```json
+```javascript
 // POST /transacoes/sacar
 {
 	"numero_conta": "1",
@@ -380,11 +380,11 @@ Esse endpoint deverá realizar o saque de um valor em uma determinada conta banc
 }
 ```
 #### Exemplo de Resposta
-```json
+```javascript
 // HTTP Status 200 / 201 / 204
 // Sem conteúdo no corpo (body) da resposta
 ```
-```json
+```javascript
 // HTTP Status 400 / 401 / 403 / 404
 {
     "mensagem": "O valor não pode ser menor que zero!"
@@ -393,7 +393,7 @@ Esse endpoint deverá realizar o saque de um valor em uma determinada conta banc
 
 #### Exemplo do registro de um saque
 
-```json
+```javascript
 {
     "data": "2021-08-10 23:40:35",
     "numero_conta": "1",
@@ -430,7 +430,7 @@ Esse endpoint deverá permitir a transferência de recursos (dinheiro) de uma co
     Em caso de **falha na validação**, a resposta deverá possuir ***status code*** apropriado, e em seu corpo (body) deverá possuir um objeto com uma propriedade **mensagem** que deverá possuir como valor um texto explicando o motivo da falha.
 
 #### Exemplo de Requisição
-```json
+```javascript
 // POST /transacoes/transferir
 {
 	"numero_conta_origem": "1",
@@ -441,11 +441,11 @@ Esse endpoint deverá permitir a transferência de recursos (dinheiro) de uma co
 ```
 #### Exemplo de Resposta
 
-```json
+```javascript
 // HTTP Status 200 / 201 / 204
 // Sem conteúdo no corpo (body) da resposta
 ```
-```json
+```javascript
 // HTTP Status 400 / 401 / 403 / 404
 {
     "mensagem": "Saldo insuficiente!"
@@ -454,7 +454,7 @@ Esse endpoint deverá permitir a transferência de recursos (dinheiro) de uma co
 
 #### Exemplo do registro de uma transferência
 
-```json
+```javascript
 {
     "data": "2021-08-10 23:40:35",
     "numero_conta_origem": "1",
@@ -487,13 +487,13 @@ Esse endpoint deverá retornar o saldo de uma conta bancária.
 
 #### Exemplo de Resposta
 
-```json
+```javascript
 // HTTP Status 200 / 201 / 204
 {
     "saldo": 13000
 }
 ```
-```json
+```javascript
 // HTTP Status 400 / 401 / 403 / 404
 {
     "mensagem": "Conta bancária não encontada!"
@@ -523,7 +523,7 @@ Esse endpoint deverá listar as transações realizadas de uma conta específica
 
 #### Exemplo de Resposta
 
-```json
+```javascript
 // HTTP Status 200 / 201 / 204
 {
   "depositos": [
@@ -570,7 +570,7 @@ Esse endpoint deverá listar as transações realizadas de uma conta específica
 }
 ```
 
-```json
+```javascript
 // HTTP Status 400 / 401 / 403 / 404
 {
     "mensagem": "Conta bancária não encontada!"
