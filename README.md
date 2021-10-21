@@ -22,7 +22,7 @@ Seu papel é construir uma RESTful API que permita:
 **Exemplo:**
 
 ```json
-// Quando é informado um número de conta que não existe ok:
+// Quando é informado um número de conta que não existe:
 // HTTP Status 404
 {
     "mensagem": "Conta bancária não encontada!"
@@ -117,7 +117,7 @@ Esse endpoint deverá listar todas as contas bancárias existentes.
             "nome": "Foo Bar",
             "cpf": "00011122233",
             "data_nascimento": "2021-03-15",
-            "telefone": '"71999998888"',
+            "telefone": "71999998888",
             "email": "foo@bar.com",
             "senha": "1234"
         }
@@ -568,12 +568,14 @@ Esse endpoint deverá listar as transações realizadas de uma conta específica
     }
   ]
 }
+```
 
 ```json
 // HTTP Status 400 / 401 / 403 / 404
 {
     "mensagem": "Conta bancária não encontada!"
 }
+```
 
 ## Aulas úteis:
 
